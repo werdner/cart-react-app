@@ -18,18 +18,19 @@ const CountersList = () => {
     }
 
     const handleIncrement = (id) => {
-        const indexItem = findItemById(counters, id);
+        const indexItem = findItemById(counters, id); indexItem = findIndex((item) => item._id === id));
         counters[indexItem].value -= 1;
         setCounter(counters);
     }
 
     const handleDecrement = (id) => {
-        const indexItem = findItemById(counters, id);
+        const indexItem = findItemById(counters, id); indexItem = findIndex((item) => item._id === id));
         counters[indexItem].value -= 1;
-        setCounter(counters);
+        setCounter(counters); // смотри, в setCounter - надо передавать новый массив, помнишь, в начале, я обращал внимание, чтобы вы возвращали новый массив
     }
 
-    const findItemById = (array, target) => {
+    // Если смотри, вообще такие функции лучше выносить из компонента
+    const findItemById = (array, target) => { // за бинарный поиск плюсик, но бинарный поиск работает на сортированном массиве, тут тебе он не вау прям нужен
         let low = 0;
         let high = array.length - 1;
 
