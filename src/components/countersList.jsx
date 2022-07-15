@@ -18,19 +18,17 @@ const CountersList = () => {
     }
 
     const handleIncrement = (id) => {
-        const newCounters = counters.map(item => {
+        setCounter(prevState => prevState.map(item => {
             if (item.id === id) item.value += 1;
             return item;
-        });
-        setCounter(newCounters);
+        }));
     }
 
     const handleDecrement = (id) => {
-        const newCounters = counters.map(item => {
+        setCounter(prevState => prevState.map(item => {
             if (item.id === id) item.value -= 1;
             return item;
-        });
-        setCounter(newCounters);
+        }));
     }
 
     return (
